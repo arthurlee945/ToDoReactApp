@@ -1,0 +1,10 @@
+*.css linguist-detectable=false
+*.java linguist-detectable=false
+*.python linguist-detectable=false
+*.js linguist-detectable=true
+*.html linguist-detectable=true
+*.xml linguist-detectable=false 
+*.scss linguist-detectable=false
+
+# to change language of repo from Html to Javascript
+    *.html linguist-language=Javascript
