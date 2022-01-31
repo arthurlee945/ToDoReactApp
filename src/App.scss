@@ -1,0 +1,389 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap');
+
+*{
+  margin:0px;
+  padding:0px;
+}
+Body{
+  font-family: "Lato", "Open Sans", sans-serif;
+  font-size: 1rem;
+  user-select: none;
+}
+.darkBg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background:#0a0a11;
+  color:#f7f7f7;
+}
+.lightBg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: #f7f7f7;
+  color: #080808;
+}
+.bgImages{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+}
+
+.mainBody{
+  z-index: 1;
+  height: 65%;
+  width: 35%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    .title{
+      font-size: 2.5rem;
+      letter-spacing: 1rem;
+    }
+    #bgIcon{
+      font-size: 1.4rem;
+      &:hover{
+        animation: icon 1s ease;
+        animation-iteration-count: infinite;
+        cursor:pointer;
+      }
+      @keyframes icon {
+        0%{
+          transform: rotate(0deg)
+        }
+        50%{
+          transform: rotate(-45deg)
+        }
+        100%{
+          transform: rotate(0deg)
+        }
+      }
+    }
+  }
+  #mainInputBox{
+    border-radius: 5px;
+  }
+  .inputBoxDark{
+    width:100%;
+    height:4rem;
+    background: #0f0e18;
+    margin-top:1rem;
+    margin-bottom:2rem;
+    padding: 0px 1rem 0px 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 2px 5px #08080880;
+    text-align:center;
+  }
+
+  .inputBoxLight{
+    @extend .inputBoxDark;
+    background: #f3f3f7;
+  }
+  .textBoxDark{
+    color:#f7f7f7;
+    caret-color: #ffa500;
+    width:95%;
+    border:none;
+    outline:none;
+    font-size:1.3rem;
+    background: transparent;
+  }
+  .textBoxLight{
+    @extend .textBoxDark;
+    color:#080808;
+  }
+  #circle{
+    font-size: 1.3rem;
+    width:1.3rem;
+    height:1.3rem;
+    margin:0.8rem;
+    &:hover{
+      background: linear-gradient(-45deg, transparent, #d711ff, #94ff1b, #14bbeb, #ed1b12, transparent );
+      background-clip: text;
+      color:transparent;
+      animation: spin 2s linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes spin {
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+    }
+  }
+  .dragableArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height:80%;
+    width: 100%;
+    padding: 0px 1rem 0px 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px #0808085e;
+    .dragOver{
+      opacity: 0.6;
+    }
+    .todoListBox{
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      justify-content: flex-start;
+      width:100%;
+      height:85%;
+      overflow-y: auto;
+      overflow-x:hidden;
+      padding: 0px 1rem 0px 1rem;
+      &::-webkit-scrollbar {
+        width: 0.5rem;
+        background:hidden;
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar-track{
+        box-shadow:inset 0 0 1rem #08080886;
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar-thumb{
+        background:#828286a4;
+        border-radius:7px;
+        &:hover{
+          background:#918e8aa4;
+        }
+      }
+      .todoDragArea{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0px 1rem 0px 1rem;
+        width:100%;
+      }
+    }
+    .todoBoxDark{
+      @extend .inputBoxDark;
+      margin:0px;
+      justify-content: space-around;
+      color: #808080;
+      box-shadow: none;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .todoBoxLight{
+      @extend .inputBoxLight;
+      justify-content: space-around;
+      margin:0px;
+      box-shadow: none;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    
+    .threeBtn{
+      display:flex;
+      flex-direction:row;
+      .all{
+        margin: 0.8rem;
+        color: rgb(105, 121, 214);
+        &:hover{
+          cursor:pointer;
+          Color:rgb(57, 80, 209);
+        }
+      }
+      .active,
+      .completed{
+        margin: 0.8rem;
+        &:hover{
+          background: linear-gradient(-45deg, transparent, #cf50e9cc, #4ec7e9cb, transparent );
+          background-clip: text;
+          color:transparent;
+          cursor:pointer;
+        }
+      }
+    }
+
+    .clearBtn{
+      &:hover{
+        color:rgb(233, 99, 99);
+        cursor:pointer;
+      }
+    }
+
+    #firstInput{
+      padding-top:0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+
+  .mobileThreeBtnDark{
+    @extend .inputBoxDark;
+    margin-top:15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #0808085e;
+    .mobileAll{
+      margin: 0.8rem;
+      color: rgb(105, 121, 214);
+        &:hover{
+          cursor:pointer;
+          Color:rgb(57, 80, 209);
+        }
+    }
+    .mobileActive,
+    .mobileCompleted{
+      margin: 0.8rem;
+        &:hover{
+          background: linear-gradient(-45deg, transparent, #cf50e9cc, #4ec7e9cb, transparent );
+          background-clip: text;
+          color:transparent;
+          cursor:pointer;
+        }
+    }
+  }
+  .mobileThreeBtnLight{
+    @extend .mobileThreeBtnDark;
+    background: #f3f3f7;
+  }
+  .todoTextBoxDark{
+    @extend .inputBoxDark;
+    justify-content: space-between;
+    border-bottom: 1px solid #f7f7f762;
+    margin:0px;
+    cursor:pointer;
+  }
+  .todoTextBoxLight{
+    @extend .inputBoxLight;
+    justify-content: space-between;
+    margin:0px;
+    cursor:pointer;
+  }
+  #delete{
+    font-size: 1.3rem;
+    width:1.3rem;
+    height:1.3rem;
+    padding-top:0.1rem;
+    margin:0.8rem;
+    &:hover{
+      cursor: pointer;
+      color:rgb(233, 99, 99);
+    }
+  }
+  .toDoCircle{
+    @extend #circle;
+    &:hover{
+      cursor:pointer;
+    }
+  }
+  .toDoCheck{
+    font-size: 1.3rem;
+    width:1.3rem;
+    height:1.3rem;
+    padding-top:0.1rem;
+    margin:0.8rem;
+    background: linear-gradient(-45deg, transparent, #d711ff, #94ff1b, #14bbeb, #ed1b12, transparent );
+    background-clip: text;
+    color:transparent;
+    &:hover{
+      cursor:pointer;
+    }
+  }
+  #todoTextActive{
+    overflow:hidden;
+  }
+  #todoTextCompleted{
+    overflow:hidden;
+    opacity:0.7;
+    text-decoration-line: line-through;
+  }
+  .sigBox{
+    margin-top: 1rem;
+    text-align:center;
+  }
+  .signature{
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .profileLinkDark{
+    font-size:0.8rem;
+    text-decoration: none;
+    color: #f7f7f7;
+    text-align:center;
+    &:hover{
+      color:#d043ec;
+    }
+  }
+  .profileLinkLight{
+    @extend .profileLinkDark;
+    color:#080808;
+    text-align:center;
+  }
+  .information{
+    font-size: 0.9rem;
+    color:#808080;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 3){
+  Body{
+    font-size: 1rem;
+  }
+  .mainBody{
+    height: 77%;
+    width: 77%;
+    
+    .inputBoxDark{
+      height:3.5rem;
+    }
+  
+    .textBoxDark{
+      font-size:1.2rem;
+    }
+     
+    .dragableArea{
+      box-shadow: 0px 10px 5px #0808085e;
+      
+      .todoListBox{
+        width:100%;
+        height:85%;
+      }
+      .todoBoxDark{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      .todoBoxLight{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+  
+      #firstInput{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+
+ 
+    .sigBox{
+      margin-top: 0;
+      text-align:center;
+    }
+  }
+}
