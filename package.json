@@ -1,6 +1,6 @@
 {
   "name": "defaultreactapp",
-  "homepage":"https://arthurlee945.github.io/interactiveToDoApp",
+  "homepage":"https://arthurlee945.github.io/ToDoReactApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
